@@ -10,7 +10,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Students | Student Information System</title>
 </head>
-<body>
+<body class="flex min-h-screen flex-col lg:flex-row">
     <aside class="lg:w-[310px] shadow-xl">
         <nav class="flex justify-between h-screen flex-col">
             <div class="px-5 py-5 border-b-2 border-black">
@@ -31,5 +31,52 @@
             </div>
         </nav>
     </aside>
+
+    <main class="flex-1 min-h-screen p-5">
+        <div class="">
+            <div class="mt-10">
+                <div class="">
+                    <h1 class="text-3xl font-bold mb-4">List of all Students</h1>
+                </div>
+                <table class="bg-white w-full text-center" cellpadding="15">
+                    <thead class="border-b-2 border-black">
+                        <th>Last Name</th>
+                        <th>Given Name</th>
+                        <th>Middle Inital</th>
+                        <th>Course</th>
+                        <th>Year Level</th>
+                        <th>Email</th>
+                        <th>&nbsp;</th>
+                    </thead>
+
+                    <tbody>
+                        <tr class="border-b-2 border-black">
+                            <td>Aguilar</td>
+                            <td>Jadrien Roi</td>
+                            <td>M.</td>
+                            <td>BSIT</td>
+                            <td>3rd</td>
+                            <td>jadrien@gmail.com</td>
+                            <td>
+                                <div class="flex items-center justify-center gap-4">
+                                    <a href="view_details.php?=id">
+                                    <i class="fa fa-eye text-lg transition-all duration-300 lg:hover:scale-110"></i>
+                                    </a>
+
+                                    <a href="edit_details.php?=id">
+                                        <i class="fa fa-edit text-lg text-green-600 transition-all duration-300 lg:hover:scale-110"></i>
+                                    </a>
+
+                                    <a href="delete_details.php?=id">
+                                        <i class="fa fa-trash text-lg text-red-600 transition-all duration-300 lg:hover:scale-110"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
