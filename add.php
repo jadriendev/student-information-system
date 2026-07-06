@@ -1,3 +1,25 @@
+<?php
+include_once 'config.php';
+
+if (isset($_POST['submit']))
+    {
+        $id = $_POST['student_id'];
+        $last_name =  $_POST['last_name'];
+        $given_name = $_POST['given_name'];
+        $middle_initial = $_POST['middle_initial'];
+        $course = $_POST['course'];
+        $year_level = $_POST['year_level'];
+        $email = $_POST['email'];
+
+        $sql = "INSERT INTO tbl_students (student_id, last_name, given_name, middle_initial, course, year_level, email)
+        VALUES ('$id', '$last_name', '$given_name', '$middle_initial', '$course', '$year_level', '$email')";
+        $result = mysqli_query($conn, $sql);
+
+        header("Location: students.php");
+        exit();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en" style="font-family: 'Google Sans', sans-serif;">
 <head>
