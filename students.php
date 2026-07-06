@@ -26,10 +26,10 @@ $result = mysqli_query($conn, $sql);
 
             <div class="mt-10">
                 <ul class="flex flex-col gap-5">
-                    <li class="flex items-center transition-all duration-300 lg:hover:bg-gray-200"><a class="py-4 px-5 w-full text-lg font-semibold transition-all duration-300 lg:hover:translate-x-4" href="dashboard.php"><i class="fa fa-house text-lg mr-2"></i>Dashboard</a></li>
+                    <li class="flex items-center transition-all duration-300 lg:hover:bg-gray-100"><a class="py-4 px-5 w-full text-lg font-semibold transition-all duration-300 lg:hover:translate-x-4" href="dashboard.php"><i class="fa fa-house text-lg mr-2"></i>Dashboard</a></li>
                     <li class="flex items-center bg-gray-200"><a class="py-4 px-5 w-full text-lg font-semibold transition-all duration-300 lg:hover:translate-x-4" href="students.php"><i class="fa fa-users text-lg mr-2"></i>Students</a></li>
-                    <li class="flex items-center transition-all duration-300 lg:hover:bg-gray-200"><a class="py-4 px-5 w-full text-lg font-semibold transition-all duration-300 lg:hover:translate-x-4" href="add.php"><i class="fa fa-add text-lg mr-2"></i>Add Student</a></li>
-                    <li class="flex items-center transition-all duration-300 lg:hover:bg-gray-200"><a class="py-4 px-5 w-full text-lg font-semibold transition-all duration-300 lg:hover:translate-x-4" href="profile.php"><i class="fa fa-user text-lg mr-2text-lg mr-2"></i>Profile</a></li>
+                    <li class="flex items-center transition-all duration-300 lg:hover:bg-gray-100"><a class="py-4 px-5 w-full text-lg font-semibold transition-all duration-300 lg:hover:translate-x-4" href="add.php"><i class="fa fa-add text-lg mr-2"></i>Add Student</a></li>
+                    <li class="flex items-center transition-all duration-300 lg:hover:bg-gray-100"><a class="py-4 px-5 w-full text-lg font-semibold transition-all duration-300 lg:hover:translate-x-4" href="profile.php"><i class="fa fa-user text-lg mr-2text-lg mr-2"></i>Profile</a></li>
                 </ul>
             </div>
 
@@ -39,53 +39,49 @@ $result = mysqli_query($conn, $sql);
         </nav>
     </aside>
 
-    <main class="flex-1 min-h-screen p-5">
+    <main class="flex-1 min-h-screen p-5 bg-[#EDEDED]">
         <div class="">
             <div class="mt-10">
                 <div class="">
                     <h1 class="text-3xl font-bold mb-4">List of Students</h1>
                 </div>
                 <?php if($result->num_rows > 0) { ?>
-                    <?php while ($row = $result->fetch_assoc()) { ?>
-                    <table class="bg-white w-full text-center" cellpadding="15">
+                    <table class="bg-[#EDEDED] w-full text-center" cellpadding="15">
                         <thead class="border-b-2 border-black">
                             <th>Last Name</th>
                             <th>Given Name</th>
                             <th>Middle Inital</th>
                             <th>Course</th>
-                            <th>Year Level</th>
-                            <th>Email</th>
                             <th>&nbsp;</th>
                         </thead>
 
                         <tbody>
+                            <?php while ($row = $result->fetch_assoc()) { ?>
                             <tr class="border-b-2 border-black">
                                 <td><?= $row['last_name']; ?></td>
                                 <td><?= $row['given_name']; ?></td>
                                 <td><?= $row['middle_initial']; ?></td>
                                 <td><?= $row['course']; ?></td>
-                                <td><?= $row['year_level']; ?></td>
-                                <td><?= $row['email']; ?></td>
                                 <td></td>
                                 <td>
                                     <div class="flex items-center justify-center gap-4">
-                                        <a href="view_details.php?=id<?= $row['id']; ?>">
+                                        <a href="view_details.php?id=<?= $row['id']; ?>">
                                         <i class="fa fa-eye text-lg transition-all duration-300 lg:hover:scale-110"></i>
                                         </a>
 
-                                        <a href="edit_details.php?=id">
+                                        <a href="edit_details.php?id=">
                                             <i class="fa fa-edit text-lg text-green-600 transition-all duration-300 lg:hover:scale-110"></i>
                                         </a>
 
-                                        <a href="delete_details.php?=id">
+                                        <a href="delete_details.php?id=">
                                             <i class="fa fa-trash text-lg text-red-600 transition-all duration-300 lg:hover:scale-110"></i>
                                         </a>
                                     </div>
                                 </td>
                             </tr>
+                            <?php } ?>
                         </tbody>
                     </table>
-                    <?php } ?>
                     <?php } else { ?>
                     <tr>
                         <td colspan="7" class="py-8 text-red-700">
