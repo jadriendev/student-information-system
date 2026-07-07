@@ -69,7 +69,7 @@ $result = mysqli_query($conn, $sql);
                                         <i class="fa fa-eye text-lg transition-all duration-300 lg:hover:scale-110"></i>
                                         </a>
 
-                                        <a href="edit_details.php?id=">
+                                        <a href="edit.php?id=<?= $row['id']; ?>">
                                             <i class="fa fa-edit text-lg text-green-600 transition-all duration-300 lg:hover:scale-110"></i>
                                         </a>
 
